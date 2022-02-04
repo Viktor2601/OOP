@@ -1,0 +1,62 @@
+GIOCO DEI DADI:
+- il giocatore gioca contro il banco;
+- il giocatore ha un tot di soldi;
+- se il giocatore vince riceve un +1;
+- se perde si fa -1;
+- il gioco termina quando il giocatore raggiunge i limiti preimpostati di valore minimo e massimo di soldi che può raggiungere;
+
+CLASSE DADO:                                                
+    variabili:
+    - numero faccie;
+    - ultimo lancio;
+    
+
+    metodi:
+    - get numero faccie;
+    - get ultimo lancio;
+    - lancio dado;
+
+CLASSE GIOCATORE:
+    variabili:
+    - nome giocatore;
+    - soldi;
+
+    metodi:
+    - get soldi;
+    - incremento soldi;
+    - decremento soldi;
+
+CLASSE TOOL:
+    metodi:
+    - inputStringa;
+
+
+
+Cosa abbaimo fatto 02-02-2022:
+- Creazione della classe Giocatore;
+- Creazione della classe Dado;
+CLASSE DADO:                                                
+    variabili:
+    - numeroFaccie;
+    - ultimoLancio;
+    
+
+    metodi:
+    - getNumeroFaccie;
+    - getUltimoLancio;
+    - lanciaDado;
+
+CLASSE GIOCATORE:
+    variabili:
+    - nome ;
+    - soldi;
+    - minSoldi ;
+    - maxSoldi;
+
+    metodi:
+    - getSoldi;
+    - incrementaSoldi;
+    - decrementoSoldi;
+    - isContinua 
+
+-Creazione del gioco nel main utilizzando le classi
