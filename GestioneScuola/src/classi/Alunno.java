@@ -1,67 +1,57 @@
-package classi;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.mycompany.gestionescuola;
 
-import javax.swing.JOptionPane;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
+/**
+ *
+ * @author tss
+ */
 public class Alunno {
-    private String nome = "-----";
-    private String cognome = "-----";
-    private int eta;
-    private String email = "-----";
-    private String numeroTelefono = "-----";
-    private Esame[] libretto = new Esame [30];
 
-    /**
-     * costruttore della classe Alunni vuota
-     */
+    private String cognome;
+    private String nome;
+    private String mail;
+    private String tel;
+    private LocalDate datainserimento = LocalDate.now();
+    private Esame[] libretto= new Esame[50];
     public Alunno() {
     }
 
-    /**
-     * costeruttore della classe Alunni che riceve come parametri il nome, il
-     * cognome e il numero di telefono del alunno
-     * 
-     * @param nome           del alunno
-     * @param cognome        del alunno
-     * @param numeroTelefono del alunno
-     */
-    public Alunno(String nome, String cognome, String numeroTelefono) {
-        this.nome = nome;
+    public Alunno(String cognome, String nome) {
         this.cognome = cognome;
-        this.numeroTelefono = numeroTelefono;
+        this.nome = nome;
+        
     }
 
-    /**
-     * costruttore della classe Alunni che riceve come parametri il nome, il
-     * cognome, il numero di telefono del alunno
-     * 
-     * @param nome           del alunno
-     * @param cognome        del alunno
-     * @param numeroTelefono del alunno
-     * @param eta            del alunno
-     */
-    public Alunno(String nome, String cognome, String numeroTelefono, int eta) {
-        this.nome = nome;
+    public Alunno(String cognome, String nome, String mail, String tel) {
         this.cognome = cognome;
-        this.numeroTelefono = numeroTelefono;
-        this.eta = eta;
+        this.nome = nome;
+        this.mail = mail;
+        this.tel = tel;
     }
 
-    /**
-     * costruttore della classe Alunni che riceve come parametri il nome, il
-     * cognome, il numero di telefono, l'email del alunno
-     * 
-     * @param nome           del alunno
-     * @param cognome        del alunno
-     * @param numeroTelefono del alunno
-     * @param eta            del alunno
-     * @param email          del alunno
-     */
-    public Alunno(String nome, String cognome, String numeroTelefono, int eta, String email) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.numeroTelefono = numeroTelefono;
-        this.eta = eta;
-        this.email = email;
+    public LocalDate getDatainserimento() {
+        return datainserimento;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public boolean setCognome(String cognome) {
+        cognome = cognome.trim();
+        if (cognome.length() >= 2) {
+            this.cognome = cognome;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getNome() {
@@ -72,68 +62,43 @@ public class Alunno {
         this.nome = nome;
     }
 
-    public String getCognome() {
-        return cognome;
+    public String getMail() {
+        return mail;
     }
 
-    public void setCognome(String cognome) {
-        cognome = cognome.trim(); // pulisce il cognome prima dopo da carattere speciali
-        if (cognome.length() < 2) {
-            JOptionPane.showMessageDialog(null, "Cognome inserito non valido");
-            return;
-        }
-
-        this.cognome = cognome;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
-    public int getEta() {
-        return eta;
+    public String getTel() {
+        return tel;
     }
 
-    public void setEta(int eta) {
-        this.eta = eta;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNumeroTelefono() {
-        return numeroTelefono;
-    }
-
-    public void setNumeroTelefono(String numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
-    }
-
-    public Esame[] getLibretto() {
-        return libretto;
-    }
-
-    public void setLibretto(Esame esame) {
-        for (int i = 0; i < libretto.length; i++) {
-            if (libretto[i] == null) {
-                libretto[i] = esame;
-                return;
-            }           
+    public void setLibretto(Esame esame){
+        for (int i=0;i<libretto.length;i++){
+            if (libretto[i]== null){
+                libretto[i]=esame;
+                break;
+                
+            }
         }
     }
-
-    /**
-     * stampa la scheda del alunno
-     */
-    public void stampaDatiAlunni() {
-        System.out.println("\n\n-------SCHEDA ALUNNO-------");
-        System.out.println("Nome -> " + nome);
-        System.out.println("Cognome -> " + cognome);
-        System.out.println("Età -> " + eta);
-        System.out.println("Numero di telefono -> " + numeroTelefono);
-        System.out.println("Email -> " + email);
-        System.out.println("---------------------------");
+    
+    void stampaInfo() {
+        System.out.println("\n\n-------Scheda alunno------");
+        System.out.println("Nome : " + nome);
+        System.out.println("Cognome : " + cognome);
+        System.out.println("Mail: " + mail);
+        System.out.println("Telefono: " + tel);
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = datainserimento.format(myFormatObj);
+        
+        System.out.println("Data iscrizione: " + formattedDate);
+        System.out.println("----------------------\n\n");
     }
 
 }

@@ -1,51 +1,64 @@
-package classi;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.mycompany.gestionescuola;
 
-import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author tss
+ */
 public class Tool {
-  
-    /**
-     * standardizza il numero di telefono togliendo gli spazi ed eventuali segni dentro il numero di telefono e aggiunge il prefisso se manca
-     * prefisso
-     * @param numeroTelefono numero di telefono da standardizzare
-     * @param prefisso 
-     * @return ritorna il numero telefonico standardizzato con il prefisso 
-     */
-    public static String checktel (String numeroTelefono, String prefisso)
-    {
-        String numeroCheck = "";
 
-        numeroTelefono = numeroTelefono.replace(" ", "");
-        numeroTelefono = numeroTelefono.replace("-", "");
-        numeroTelefono = numeroTelefono.replace(",", "");
-        numeroTelefono = numeroTelefono.replace(".", "");
-        numeroTelefono = numeroTelefono.replace("(", "");
-        numeroTelefono = numeroTelefono.replace(")", "");
-
+    String checkTel(String tel) {
+        String ris = "";
+        //toglo gli spazi
+        tel = tel.replace(" ", "");
+        //tolgo trattini punti
+        tel = tel.replace("-", "");
+        tel = tel.replace(".", "");
+        tel = tel.replace("(", "");
+        tel = tel.replace(")", "");
         try {
-            long check = Long.parseLong(numeroTelefono);
-            String prefissoCheck = numeroTelefono.substring(0, 3);
-            
-            if (prefissoCheck.equals(prefisso)) {
-                numeroCheck = numeroTelefono;
+            long ltel = Long.parseLong(tel);
+            String tre = tel.substring(0, 3);
+            if (tre.equals("+39")) {
+                ris = tel;
             } else {
-                numeroCheck = prefisso + numeroTelefono;
+                ris = "+39" + tel;
             }
-
-        } catch (Exception errore) {
-            JOptionPane.showMessageDialog(null, "Il numero inserito non è valido");
+        } catch (Exception e) {
+            ris = "";
         }
 
-        return numeroCheck;
+        return ris;
     }
-    
-     /**
-     * standardizza il numero di telefono togliendo gli spazi ed eventuali segni dentro il numero di telefono e aggiunge il prefisso +39 se manca     * 
-     * 
-     * @param numeroTelefono numero di telefono da standardizzare
-     * @return ritorna il numero telefonico standardizzato con il prefisso +39
-     */
-    public static String checkTel(String numeroTelefono) {
-        return checktel(numeroTelefono, "+39");
+
+
+    String checkTel(String tel,String prefix) {
+        String ris = "";
+        //toglo gli spazi
+        tel = tel.replace(" ", "");
+        //tolgo trattini punti
+        tel = tel.replace("-", "");
+        tel = tel.replace(".", "");
+        tel = tel.replace("(", "");
+        tel = tel.replace(")", "");
+        try {
+            long ltel = Long.parseLong(tel);
+            String tre = tel.substring(0, 3);
+            if (tre.equals(prefix)) {
+                ris = tel;
+            } else {
+                ris = prefix + tel;
+            }
+        } catch (Exception e) {
+            ris = "";
+        }
+
+        return ris;
     }
+
+
 }
