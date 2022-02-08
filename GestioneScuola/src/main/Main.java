@@ -2,7 +2,6 @@ package main;
 
 import classi.Alunno;
 import classi.Corso;
-import classi.Tool;
 
 public class Main {
     public static void main(String[] args) throws Exception {

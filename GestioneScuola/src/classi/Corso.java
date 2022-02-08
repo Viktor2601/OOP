@@ -161,20 +161,7 @@ public class Corso {
     }
 
     /**
-     * aggiunge un alunno al registro alla prima posizione disponibile
-     * 
-     * @param alunno da aggiungere al registro
-     */
-    public void aggiungiAlunno(Alunno alunno) {
-        int posizioneregistro = 0;
-        for (int i = 0; i < registro.length; i++) {
-            if (registro[i] == null) {
-                posizioneregistro = i;
-                break;
-            }
-        }
-
-        registro[posizioneregistro] = alunno;
+     * aggiunge un alunno al registro alla prima posizione disponibile";"
 
     }
 
@@ -201,5 +188,21 @@ public class Corso {
                 registro[i].stampaDatiAlunni();
             }
         }
+    }
+
+    public String getInfo() {
+        String ris ="";
+        ris += "\n\n-------SCHEDA CORSO-------\n";
+        ris +=   ("\nNome del corso -> " + nomeCorso);
+        ris += ("\nDescrizione del corso -> " + descrizioneCorso);
+        ris += ("\nDurata del corso -> " + durataCorso);
+        ris += ("\nData inizio del corso -> " + dataInizioCorso.toString());
+        return ris;
+    }
+
+    public String getCsv() {
+        String ris ="";
+        ris +=  nomeCorso + ";" + durataCorso + ";" + descrizioneCorso + ";" + dataInizioCorso.toString() + "\n";
+        return ris;
     }
 }

@@ -3,5 +3,19 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.foreground": "#2C0065",
+        "activityBar.background": "#C99FFF",
+        "activityBar.inactiveForeground": "#928AFF",
+        "activityBarBadge.foreground": "#540044",
+        "activityBarBadge.background": "#FFAEF0",
+        "statusBar.foreground": "#37005C",
+        "statusBar.background": "#D495FF",
+        "statusBarItem.hoverBackground": "#863D88",
+        "statusBarItem.remoteForeground": "#49002F",
+        "statusBarItem.remoteBackground": "#FF7ED0",
+        "statusBar.debuggingForeground": "#37005C",
+        "statusBar.debuggingBackground": "#D495FF"
+    }
 }
