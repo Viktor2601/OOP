@@ -16,16 +16,18 @@ public class Carta {
     private final ArrayList<Integer> valoriPossibili;
     private int valore;
     private final Nome nome;
+    private boolean coperta = false;
 
     public Carta(Seme seme, int valore, Nome nome) {
-        this(seme, valore, nome, new ArrayList());
+        this(seme, valore, nome, new ArrayList(), false);
     }
 
-    public Carta(Seme seme, int valore, Nome nome, ArrayList<Integer> valoriPossibili) {
+    public Carta(Seme seme, int valore, Nome nome, ArrayList<Integer> valoriPossibili, boolean coperta) {
         this.seme = seme;
         this.valore = valore;
         this.valoriPossibili = new ArrayList<>(valoriPossibili);
         this.nome = nome;
+        this.coperta = coperta;
         if (this.valoriPossibili.isEmpty()) {
             this.valoriPossibili.add(valore);
         }
@@ -43,6 +45,14 @@ public class Carta {
         return valore;
     }
 
+    public boolean isCoperta() {
+        return coperta;
+    }
+
+    public void setCoperta(boolean coperta) {
+        this.coperta = coperta;
+    }
+
     public Nome getNome() {
         return nome;
     }
@@ -56,7 +66,8 @@ public class Carta {
 
     @Override
     public String toString() {
-        return this.nome.name() + " di " + this.seme.name();
+        return this.coperta ? "????????" :
+        nome.name() + " di " + this.seme.name();
     }
 
     @Override
@@ -86,6 +97,9 @@ public class Carta {
             return false;
         return true;
     }
+
+
+    
 
 
     
