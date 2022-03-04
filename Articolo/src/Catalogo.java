@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
@@ -23,7 +24,7 @@ public class Catalogo<E extends ArticoloI> implements Iterable {
     }
 
     public List<E> getCatalogo() {
-        return catalogo;
+        return Collections.unmodifiableList(catalogo);
     }
 
     // OVERRIDE ITERATOR
