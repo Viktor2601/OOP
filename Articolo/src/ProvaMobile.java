@@ -19,6 +19,6 @@ public class ProvaMobile {
         Predicate<Mobile> byLarghezza = m -> m.getLarghezza() < lar;
         Predicate<Mobile> byAltezza = m -> m.getAltezza() < alt;
         Predicate<Mobile> byProfondita = m -> m.getProfondita() < prof;
-        return cat.catalogo.stream().filter(byPrezzo.and(byLarghezza).and(byAltezza).and(byProfondita)).collect(Collectors.toList());
+        return cat.getCatalogo().stream().filter(byPrezzo.and(byLarghezza).and(byAltezza).and(byProfondita)).collect(Collectors.toList());
     }
 }
